@@ -2,127 +2,117 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Selamat Ulang Tahun!</title>
-  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Open+Sans&display=swap" rel="stylesheet" />
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday Skay!</title>
   <style>
     body {
       margin: 0;
       padding: 0;
-      background: linear-gradient(to top right, #ffe4e1, #ffb6c1);
-      font-family: 'Open Sans', sans-serif;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #ffe3e3, #ffe9ec);
       text-align: center;
-      color: #333;
-    }
-    .container {
-      padding: 40px 20px;
-      max-width: 800px;
-      margin: auto;
+      overflow-x: hidden;
     }
     h1 {
-      font-family: 'Pacifico', cursive;
-      font-size: 2.5em;
-      color: #e91e63;
+      font-size: 2.5rem;
       margin-top: 20px;
+      color: #ff4d6d;
+    }
+    p {
+      max-width: 600px;
+      margin: 20px auto;
+      padding: 0 10px;
+      font-size: 1.1rem;
+      color: #333;
+      line-height: 1.6;
+    }
+    .video-container {
+      margin: 30px auto;
+      max-width: 90%;
     }
     iframe {
       width: 100%;
-      max-width: 600px;
-      height: 338px;
-      border-radius: 20px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+      height: 360px;
+      border-radius: 10px;
       border: none;
-      margin-top: 20px;
     }
-    .message {
+    .share-btn {
       margin-top: 30px;
-      background: white;
-      padding: 25px;
-      border-radius: 15px;
-      box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-      font-size: 1.1em;
-      line-height: 1.7;
-      animation: fadeIn 2s ease;
-      white-space: pre-line;
-      text-align: left;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
-      color: #444;
-    }
-    .from {
-      margin-top: 20px;
-      font-style: italic;
-      color: #555;
-    }
-    button {
-      margin-top: 20px;
-      padding: 12px 25px;
-      font-size: 1em;
-      border: none;
-      border-radius: 25px;
-      background-color: #e91e63;
+      background-color: #25d366;
       color: white;
+      border: none;
+      padding: 12px 20px;
+      font-size: 1rem;
+      border-radius: 30px;
       cursor: pointer;
-      transition: background-color 0.3s ease;
     }
-    button:hover {
-      background-color: #d81b60;
+    .share-btn:hover {
+      background-color: #1ebe57;
     }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+    canvas {
+      position: fixed;
+      pointer-events: none;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 9999;
     }
   </style>
 </head>
-<body onload="launchConfetti()">
-  <div class="container">
-    <h1>Selamat Ulang Tahun, Skay! 🎉</h1>
-
-    <iframe 
-      src="https://streamable.com/o/nq8ijb" 
-      allowfullscreen 
-      scrolling="no"
-      ></iframe>
-
-    <div class="message">
-      Hai Skay!  
-
-      Selamat ulang tahun ya! Semoga hari ini Skay dapet banyak banget kado, surprise, dan tentu aja pelukan hangat dari orang-orang terdekat. Hari spesial kayak gini harus banget dirayain dengan penuh senyum dan hati yang bahagia.  
-
-      Dika doain semoga di umur baru ini, semua mimpi Skay makin deket buat diwujudkan. Semoga Skay selalu sehat, makin kece, dan penuh semangat ngejar apa pun yang Skay pengenin. Jangan lupa, istirahat yang cukup dan makan makanan favorit biar makin happy!  
-
-      Ingat ya, hidup itu penuh warna. Kadang ada yang seru, kadang ada yang bikin mikir, tapi semua itu yang bikin kita tumbuh jadi pribadi yang lebih keren dan kuat. Jadi, nikmati setiap detik perjalanan Skay, termasuk yang lucu, awkward, dan memorable!  
-
-      Pokoknya, terus jadi Skay yang selalu ceria, baik hati, dan penuh inspirasi buat orang sekitar. Skay itu keren banget, dan Dika yakin dunia ini bakal jadi tempat yang lebih indah karena Skay ada.  
-
-      Jangan lupa buat sesekali manjain diri sendiri, jalan-jalan, ketawa lepas, dan kumpul sama teman-teman yang selalu support Skay. Karena Skay layak dapetin semua hal baik dan kebahagiaan.  
-
-      Sekali lagi, selamat ulang tahun ya! Semoga tahun ini jadi babak baru yang penuh kejutan menyenangkan dan cerita seru buat Skay. Dika selalu ada di sini, dukung Skay dari jauh.  
-
-      Keep shining, Skay! 🎉🎂💖
-    </div>
-
-    <div class="from">
-      Dari: orang ganteng yang nanggung, yudika💐
-    </div>
-
-    <button onclick="shareWhatsApp()">Bagikan via WhatsApp 📲</button>
+<body>
+  <canvas id="confetti"></canvas>
+  <h1>Selamat Ulang Tahun, Skay! 🎉</h1>
+  <div class="video-container">
+    <iframe src="https://streamable.com/e/nq8ijb" allowfullscreen></iframe>
   </div>
+  <p>
+    Hai Skay! ✨<br>
+    Dika cuma mau bilang: selamat ulang tahun yaa! 🎂  
+    Semoga Skay selalu dikasih kesehatan, kebahagiaan, dan rezeki yang lancar.  
+    Terima kasih udah jadi sosok yang manis, kuat, dan spesial banget.  
+    Dika tahu Skay bisa ngelewatin apa pun yang Skay hadapin tahun ini.  
+    Pokoknya semangat terus yaa!  
+    Jangan lupa senyum terus dan nikmati hari spesial ini.  
+    🎈🎁🎉
+  </p>
+  <button class="share-btn" onclick="shareWhatsApp()">
+    Share ke WhatsApp
+  </button>
 
+  <!-- Confetti animation -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
   <script>
-    function launchConfetti() {
-      confetti({
-        particleCount: 150,
-        spread: 80,
-        origin: { y: 0.6 }
-      });
+    const duration = 5 * 1000;
+    const animationEnd = Date.now() + duration;
+    const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
+
+    function randomInRange(min, max) {
+      return Math.random() * (max - min) + min;
     }
 
+    const interval = setInterval(() => {
+      const timeLeft = animationEnd - Date.now();
+      if (timeLeft <= 0) {
+        return clearInterval(interval);
+      }
+
+      const particleCount = 50 * (timeLeft / duration);
+      confetti({
+        ...defaults,
+        particleCount,
+        origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 }
+      });
+      confetti({
+        ...defaults,
+        particleCount,
+        origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 }
+      });
+    }, 250);
+
     function shareWhatsApp() {
-      const msg = encodeURIComponent("Ada laporan keuangan terbaru yang perlu diperiksa. Yuk cek sekarang!");
-      window.open(`https://wa.me/?text=${msg}`, '_blank');
+      const text = encodeURIComponent("Lihat ucapan ulang tahun buat Skay di sini 🎉👇\nhttps://dwynexx.github.io/nama-repo-kamu/");
+      window.open(`https://wa.me/?text=${text}`, '_blank');
     }
   </script>
 </body>
